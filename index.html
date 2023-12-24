@@ -3,39 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- A. Modify the N below to display the group number -->
-    <title>Group No. N Display Names</title>
+    <title>Group N</title>
 </head>
 <body>
 
-<!-- B. Edit your group number N below -->
-<h1>Group No. N</h1> 
+    <h1>Group N</h1>
 
-<h2>List of Names</h2>
+    <script>
+        
+        var N = 3; 
 
-<!-- This is the container where we will display the names -->
-<ol id="nameList"></ol>
+     
+        var namesArray = [
+            "ALFEREZ, MICHAEL JOHN",
+            "RICOTOSO, ERROL JAY",
+            "VICENTE, MICA",
+            "SERNA, NOEMI ANGELIKA",
+            "REYES, ROXSON",
+            "PIMIENTA, JAY-VEE",
+            "BALALLO, ALVIN DALE",
+            "IBRAO, GABRIEL"
+      
+        ];
 
-<script>
-    // Your array of names
-    // C. Modify your group members in UPPERCASE using the format: Lastname, FirstName
-    var namesArray = ["nameN"];
+     
+        document.title = "Group " + N + " Web Page";
 
-    // Get the container element
-    var nameListContainer = document.getElementById("nameList");
+       
+        document.querySelector('h1').innerText = "Group " + N;
 
-    // Loop through the names and create a list
-    for (var i = 0; i < namesArray.length; i++) {
-        // Create a list element for each name
-        var ol = document.createElement("li");
+        for (var i = 0; i < namesArray.length; i++) {
+            var names = namesArray[i].split(', ');
+            namesArray[i] = names[0].toUpperCase() + ', ' + names[1]; 
+        }
 
-        // Set the text content of the list to the current name
-        ol.textContent = namesArray[i];
+        console.log("Modified Names:", namesArray.join(', '));
 
-        // Append the list to the container
-        nameListContainer.appendChild(ol);
-    }
-</script>
+        var modifiedNamesElement = document.createElement('div');
+        modifiedNamesElement.innerText = namesArray.join('\n');
+        document.body.appendChild(modifiedNamesElement);
+    </script>
 
 </body>
 </html>
